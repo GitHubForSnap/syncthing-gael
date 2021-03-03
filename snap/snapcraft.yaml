@@ -1,5 +1,5 @@
 name: syncthing-arubislander 
-base: core120
+base: core20
 adopt-info: app
 summary:  Open Source Continuous File Synchronization
 description: |
