@@ -1,0 +1,82 @@
+name: syncthing-arubislander 
+base: core120
+adopt-info: app
+summary:  Open Source Continuous File Synchronization
+description: |
+  Syncthing is a continuous file synchronization program. It synchronizes files between 
+  two or more computers in real time, safely protected from prying eyes. Your data is 
+  your data alone and you deserve to choose where it is stored, whether it is shared with 
+  some third party, and how it's transmitted over the internet.
+
+grade: stable 
+confinement: strict
+
+#architectures:
+#- build-on: [amd64, arm, arm64]
+#  run-on: [amd64, arm, arm64]
+
+license: "MPL-2.0"
+
+apps:
+  syncthingd:
+    command: syncthingd.sh
+    daemon: simple
+    environment:
+      HOME: ${SNAP_USER_COMMON}
+      XDG_CONFIG_HOME: ${SNAP_USER_COMMON}
+    plugs:
+    - home
+    - network
+    - network-bind
+    - removable-media
+
+parts:
+  launcher:
+    # See 'snapcraft plugins'
+    plugin: dump
+    source: ./launcher
+    stage:
+      - syncthingd.sh
+
+  app:
+    plugin: go
+    source: https://github.com/syncthing/syncthing.git
+    source-tag: v1.14.0
+    source-type: git
+    build-packages:
+      - build-essential
+    override-build: |
+      COUNT=1
+      VERSION=$(echo $(git describe --always) | sed -e "s/^v//" | sed -r "s/-[0-9]{1,3}-g[0-9a-f]{5,10}//")+snap${COUNT} # then git description
+      #
+      ARR="$(echo '${SNAPCRAFT_ARCH_TRIPLET}' | cut -d'-' -f1)"
+      ARCH=$(echo ${ARR}|sed -e "s/armhf/arm/" -e "s/aarch/arm/" -e "s/x86_/amd/")
+      #
+      echo "Building Syncthing ..."
+      echo "VERSION: ${VERSION}"
+      echo "ARCH   : ${ARCH}"
+      echo "-----------------------"
+      snapcraftctl set-version "${VERSION}"
+      go run build.go -no-upgrade -goos linux -goarch ${ARCH} build
+      mkdir -p ../install/bin
+      cp syncthing ../install/bin/syncthing
+
+  # This part removes all the files in this snap which already exist in
+  # connected content and base snaps. Since these files will be available
+  # at runtime from the content and base snaps, they do not need to be
+  # included in this snap itself.
+  #
+  # More info: https://forum.snapcraft.io/t/reducing-the-size-of-desktop-snaps/17280#heading--cleanup-part
+  #
+  cleanup:
+    after:  # Make this part run last; list all your other parts here
+      - app
+    plugin: nil
+    build-snaps:  # List all content-snaps and base snaps you're using here
+      - core20
+    override-prime: |
+      set -eux
+      for snap in "core18"; do  # List all content-snaps and base snaps you're using here
+          cd "/snap/$snap/current" && find . -type f,l -exec rm -f "$SNAPCRAFT_PRIME/{}" \;
+      done
+
