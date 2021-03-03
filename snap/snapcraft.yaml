@@ -11,9 +11,9 @@ description: |
 grade: stable 
 confinement: strict
 
-#architectures:
-#- build-on: [amd64, arm, arm64]
-#  run-on: [amd64, arm, arm64]
+architectures:
+- build-on: [amd64]
+  run-on: [amd64]
 
 license: "MPL-2.0"
 
@@ -76,7 +76,7 @@ parts:
       - core20
     override-prime: |
       set -eux
-      for snap in "core18"; do  # List all content-snaps and base snaps you're using here
+      for snap in "core20"; do  # List all content-snaps and base snaps you're using here
           cd "/snap/$snap/current" && find . -type f,l -exec rm -f "$SNAPCRAFT_PRIME/{}" \;
       done
 
