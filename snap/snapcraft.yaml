@@ -1,21 +1,20 @@
-name: syncthing-gael 
+name: syncthing-gael
 base: core20
 adopt-info: app
-summary:  Open Source Continuous File Synchronization
+summary: Open Source Continuous File Synchronization
 description: |
   Syncthing is a continuous file synchronization program. It synchronizes files between 
   two or more computers in real time, safely protected from prying eyes. Your data is 
   your data alone and you deserve to choose where it is stored, whether it is shared with 
   some third party, and how it's transmitted over the internet.
 
-grade: stable 
+grade: stable
 confinement: strict
 
 architectures:
   - build-on: arm64
   - build-on: armhf
   - build-on: amd64
-  - build-on: i386
 
 license: "MPL-2.0"
 
@@ -34,7 +33,6 @@ apps:
 
 parts:
   launcher:
-    # See 'snapcraft plugins'
     plugin: dump
     source: ./launcher
     stage:
@@ -43,7 +41,7 @@ parts:
   app:
     plugin: go
     source: https://github.com/syncthing/syncthing.git
-    source-tag: v1.14.0
+    source-tag: v1.15.0-rc.4
     source-type: git
     build-packages:
       - build-essential
