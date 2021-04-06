@@ -11,7 +11,7 @@ To configure your new node visit http://localhost:8384/
 Read the doc at https://docs.syncthing.net/intro/getting-started.html on how to get started.
 
 **2021-04-06**
-* V1.15.0 available on amd64, arm64 & armhf
+* V1.15.0/v1.15.1 available on amd64, arm64 & armhf
 * The GUI listen address is no longer forced to 0.0.0.0. It can be changed in Action --> Settings --> GUI
 
 **2021-03-13**
