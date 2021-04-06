@@ -6,9 +6,13 @@ For more information see: https://syncthing.net/
 
 **First-time users**
 
-To configure your new node visit http://IP_OF_YOUR_NODE:8384/
+To configure your new node visit http://localhost:8384/
 
 Read the doc at https://docs.syncthing.net/intro/getting-started.html on how to get started.
+
+**2021-04-06**
+* V1.15.0 available on amd64, arm64 & armhf
+* The GUI listen address is no longer forced to 0.0.0.0. It can be changed in Action --> Settings --> GUI
 
 **2021-03-13**
 * First release of syncthing-gael v1.14.0 on arm64 & armhf architectures
