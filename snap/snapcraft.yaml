@@ -41,7 +41,7 @@ parts:
   app:
     plugin: go
     source: https://github.com/syncthing/syncthing.git
-    source-tag: v1.16.0-rc.1
+    source-tag: v1.16.0-rc.2
     source-type: git
     build-packages:
       - build-essential
@@ -51,10 +51,6 @@ parts:
       ARR="$(echo '${SNAPCRAFT_ARCH_TRIPLET}' | cut -d'-' -f1)"
       ARCH=$(echo ${ARR}|sed -e "s/armhf/arm/" -e "s/aarch/arm/" -e "s/x86_/amd/")
       #
-      echo "Building Syncthing ..."
-      echo "VERSION: ${VERSION}"
-      echo "ARCH   : ${ARCH}"
-      echo "-----------------------"
       snapcraftctl set-version "${VERSION}"
       go run build.go -no-upgrade -goos linux -goarch ${ARCH} build
       mkdir -p ../install/bin
