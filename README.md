@@ -16,7 +16,7 @@ Read the doc at https://docs.syncthing.net/intro/getting-started.html on how to 
 
 **2021-03-13**
 * First release of syncthing-gael v1.14.0 on arm64 & armhf architectures
-* Caveat: I don't have the hardware to test it properly
+* Caveat: I don't have the hardware to properly test it
 
 **2021-03-08**
 * First release of syncthing-gael v1.14.0 on amd64
