@@ -41,7 +41,7 @@ parts:
   app:
     plugin: go
     source: https://github.com/syncthing/syncthing.git
-    source-tag: v1.16.1
+    source-tag: v1.17.0-rc.2
     source-type: git
     build-packages:
       - build-essential
