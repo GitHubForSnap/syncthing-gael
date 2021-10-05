@@ -10,6 +10,9 @@ To configure your new node visit http://localhost:8384/
 
 Read the doc at https://docs.syncthing.net/intro/getting-started.html on how to get started.
 
+**2021-10-05**
+* v1.18.3 available on amd64, arm64 & armhf
+
 **2021-09-07**
 * v1.18.2 available on amd64, arm64 & armhf
 
