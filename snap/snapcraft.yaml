@@ -1,6 +1,6 @@
 name: syncthing-gael
+version: "1.18.3-fix-path"
 base: core20
-adopt-info: app
 summary: Open Source Continuous File Synchronization
 description: |
   Syncthing is a continuous file synchronization program. It synchronizes files between 
@@ -23,7 +23,7 @@ apps:
     command: syncthingd.sh
     daemon: simple
     environment:
-      HOME: ${SNAP_COMMON}
+      HOME: ${SNAP_USER_COMMON}
       XDG_CONFIG_HOME: ${SNAP_USER_COMMON}
     plugs:
     - home
@@ -46,12 +46,9 @@ parts:
     build-packages:
       - build-essential
     override-build: |
-      VERSION=$(echo $(git describe --always) | sed -e "s/^v//" | sed -r "s/-[0-9]{1,3}-g[0-9a-f]{5,10}//") # then git description
-      #
       ARR="$(echo '${SNAPCRAFT_ARCH_TRIPLET}' | cut -d'-' -f1)"
       ARCH=$(echo ${ARR}|sed -e "s/armhf/arm/" -e "s/aarch/arm/" -e "s/x86_/amd/")
       #
-      snapcraftctl set-version "${VERSION}"
       go run build.go -no-upgrade -goos linux -goarch ${ARCH} build
       mkdir -p ../install/bin
       cp syncthing ../install/bin/syncthing

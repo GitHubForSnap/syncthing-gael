@@ -1,3 +1,3 @@
 #!/bin/bash
 
-$SNAP/bin/syncthing -no-browser
+$SNAP/bin/syncthing --no-browser
