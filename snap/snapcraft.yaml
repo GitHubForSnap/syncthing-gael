@@ -1,5 +1,5 @@
 name: syncthing-gael
-version: "1.18.3-fix-path"
+version: "1.18.4-rc.2"
 base: core20
 summary: Open Source Continuous File Synchronization
 description: |
@@ -23,8 +23,7 @@ apps:
     command: syncthingd.sh
     daemon: simple
     environment:
-      HOME: ${SNAP_USER_COMMON}
-      XDG_CONFIG_HOME: ${SNAP_USER_COMMON}
+      HOME: ${SNAP_COMMON}
     plugs:
     - home
     - network
@@ -41,7 +40,7 @@ parts:
   app:
     plugin: go
     source: https://github.com/syncthing/syncthing.git
-    source-tag: v1.18.3
+    source-tag: v1.18.4-rc.2
     source-type: git
     build-packages:
       - build-essential
