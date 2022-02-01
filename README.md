@@ -19,6 +19,9 @@ Read the doc at https://docs.syncthing.net/intro/getting-started.html on how to 
 * Starting with v1.18.4 config is now stored by default in $SNAP_DATA and shared folders in $SNAP_COMMON.
 * The v1.18.4 is backward compatible with the old versions and will use old config paths when appropriate.
 
+**2022-02-01**
+* v1.19.0 available on amd64, arm64 & armhf
+
 **2022-01-11**
 * v1.18.6 available on amd64, arm64 & armhf
 
