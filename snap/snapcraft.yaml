@@ -1,6 +1,6 @@
 name: syncthing-gael
-version: "1.22.3-rc.1"
-base: core20
+version: "1.22.3-rc.2"
+base: core22
 summary: Open Source Continuous File Synchronization
 description: |
   Syncthing is a continuous file synchronization program. It synchronizes files between 
@@ -40,10 +40,12 @@ parts:
   app:
     plugin: go
     source: https://github.com/syncthing/syncthing.git
-    source-tag: v1.22.3-rc.1
+    source-tag: v1.22.3-rc.2
     source-type: git
-    build-packages:
-      - build-essential
+    build-snaps:
+      - go
+        #    build-packages:
+        #      - build-essential
     override-build: |
       ARR="$(echo '${SNAPCRAFT_ARCH_TRIPLET}' | cut -d'-' -f1)"
       ARCH=$(echo ${ARR}|sed -e "s/armhf/arm/" -e "s/aarch/arm/" -e "s/x86_/amd/")
