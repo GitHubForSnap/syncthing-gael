@@ -1,5 +1,5 @@
 name: syncthing-gael
-version: "1.22.3-rc.2"
+version: "1.23.0"
 base: core22
 summary: Open Source Continuous File Synchronization
 description: |
@@ -40,12 +40,10 @@ parts:
   app:
     plugin: go
     source: https://github.com/syncthing/syncthing.git
-    source-tag: v1.22.3-rc.2
+    source-tag: v1.23.0
     source-type: git
     build-snaps:
       - go
-        #    build-packages:
-        #      - build-essential
     override-build: |
       ARR="$(echo '${SNAPCRAFT_ARCH_TRIPLET}' | cut -d'-' -f1)"
       ARCH=$(echo ${ARR}|sed -e "s/armhf/arm/" -e "s/aarch/arm/" -e "s/x86_/amd/")
@@ -53,23 +51,3 @@ parts:
       go run build.go -no-upgrade -goos linux -goarch ${ARCH} build
       mkdir -p ../install/bin
       cp syncthing ../install/bin/syncthing
-
-  # This part removes all the files in this snap which already exist in
-  # connected content and base snaps. Since these files will be available
-  # at runtime from the content and base snaps, they do not need to be
-  # included in this snap itself.
-  #
-  # More info: https://forum.snapcraft.io/t/reducing-the-size-of-desktop-snaps/17280#heading--cleanup-part
-  #
-  cleanup:
-    after:  # Make this part run last; list all your other parts here
-      - app
-    plugin: nil
-    build-snaps:  # List all content-snaps and base snaps you're using here
-      - core20
-    override-prime: |
-      set -eux
-      for snap in "core20"; do  # List all content-snaps and base snaps you're using here
-          cd "/snap/$snap/current" && find . -type f,l -exec rm -f "$SNAPCRAFT_PRIME/{}" \;
-      done
-
