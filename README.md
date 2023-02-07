@@ -21,6 +21,9 @@ Read the doc at https://docs.syncthing.net/intro/getting-started.html on how to 
 * Starting with v1.18.4 config is now stored by default in $SNAP_DATA and shared folders in $SNAP_COMMON.
 * The v1.18.4 is backward compatible with the old versions and will use old config paths when appropriate.
 
+**2023-02-07**
+* v1.23.1 available on amd64, arm64 & armhf
+
 **2023-01-02**
 * v1.23.0 available on amd64, arm64 & armhf
 * syncthing-gael will now use core22 as most of the users are on Ubuntu 22.04
