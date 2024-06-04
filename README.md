@@ -14,7 +14,7 @@ Read the doc at https://docs.syncthing.net/intro/getting-started.html on how to 
 
 **Important change**
 
-* As of v1.22.3-rc.2 syncthing-gael will use core22 as most of the users are on Ubuntu 22.04. This version will first be available on the edge channel.
+* Most users are on Ubuntu 24.04, next version will use core24
 
 * From v1.14.0 to v1.18.2 this snap used $SNAP_USER_COMMON as the home for config and shared folders. This was a mistake.
 * In v1.18.3 config was still in $SNAP_USER_COMMON but newly configured shared folders were in $SNAP_COMMON by default (as it always should have been).
