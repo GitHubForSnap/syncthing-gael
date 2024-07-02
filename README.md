@@ -20,8 +20,9 @@ Read the doc at https://docs.syncthing.net/intro/getting-started.html on how to 
 * The v1.18.4 is backward compatible with the old versions and will use old config paths when appropriate.
 
 **2024-07-02**
-* v1.27.9 available on amd64, arm64 & armhf
+* v1.27.9 available on amd64, arm64, armhf, ppc64el & s390x
 * syncthing-gael will now use core24 as most of the users are on Ubuntu 24.04
+* First release of syncthing-gael on ppc64el & s390x architectures. I don't have the hardware to properly test it.
 
 **2024-06-04**
 * v1.27.8 available on amd64, arm64 & armhf
