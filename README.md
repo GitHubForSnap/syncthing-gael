@@ -14,12 +14,14 @@ Read the doc at https://docs.syncthing.net/intro/getting-started.html on how to 
 
 **Important change**
 
-* Most users are on Ubuntu 24.04, next version will use core24
-
 * From v1.14.0 to v1.18.2 this snap used $SNAP_USER_COMMON as the home for config and shared folders. This was a mistake.
 * In v1.18.3 config was still in $SNAP_USER_COMMON but newly configured shared folders were in $SNAP_COMMON by default (as it always should have been).
 * Starting with v1.18.4 config is now stored by default in $SNAP_DATA and shared folders in $SNAP_COMMON.
 * The v1.18.4 is backward compatible with the old versions and will use old config paths when appropriate.
+
+**2024-07-02**
+* v1.27.9 available on amd64, arm64 & armhf
+* syncthing-gael will now use core24 as most of the users are on Ubuntu 24.04
 
 **2024-06-04**
 * v1.27.8 available on amd64, arm64 & armhf
