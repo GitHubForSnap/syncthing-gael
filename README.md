@@ -2,6 +2,9 @@
 
 _This is NOT an original piece of work, just a snap of syncthing_
 
+This version of syncthing as a snap is designed for IoT and servers (where it makes sense to store data in /var/snap/syncthing-gael/common).
+Specifically for Ubuntu Core where DEB packages are not an option.
+
 Syncthing is a continuous file synchronization program. It synchronizes files between two or more computers in real time, safely protected from prying eyes. Your data is your data alone and you deserve to choose where it is stored, whether it is shared with some third party, and how it's transmitted over the internet.
 
 For more information see: https://syncthing.net/
