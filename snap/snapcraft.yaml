@@ -47,7 +47,7 @@ parts:
     build-snaps:
       - go
     override-build: |
-      ARCH=$(echo ${CRAFT_ARCH_BUILD_ON}|sed -e "s/armhf/arm/" -e "s/ppc64el/ppc64le/")
+      ARCH=$(echo ${CRAFT_ARCH_BUILD_FOR}|sed -e "s/armhf/arm/" -e "s/ppc64el/ppc64le/")
 
       go run build.go -no-upgrade -goos linux -goarch ${ARCH} build
       
