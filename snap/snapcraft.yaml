@@ -1,5 +1,5 @@
 name: syncthing-gael
-version: "v2.0.0-beta.2"
+version: "v2.0.0-beta.3"
 base: core24
 summary: Open Source Continuous File Synchronization
 description: |
@@ -42,7 +42,7 @@ parts:
   app:
     plugin: go
     source: https://github.com/syncthing/syncthing.git
-    source-tag: v2.0.0-beta.2
+    source-tag: v2.0.0-beta.3
     source-type: git
     build-snaps:
       - go/1.23/stable
