@@ -22,12 +22,12 @@ echo "SNAP_NEW_PATH_EXISTS=$SNAP_NEW_PATH_EXISTS"
 if [ "$SNAP_NEW_PATH_EXISTS" = "true" ] || ( [ "$SNAP_OLD_PATH_EXISTS" = "false" ] && [ "$SNAP_NEW_PATH_EXISTS" = "false" ] ); then
 
   echo "Using the new path to search for the config file..."
-  $SNAP/bin/syncthing -no-browser -home="$SNAP_NEW_PATH"
+  $SNAP/bin/syncthing serve --no-browser --home="$SNAP_NEW_PATH"
 
   exit 0
 fi
 
 echo "Using the old path to search for the config file..."
-$SNAP/bin/syncthing -no-browser -home="$SNAP_OLD_PATH"
+$SNAP/bin/syncthing serve --no-browser --home="$SNAP_OLD_PATH"
 
 exit 0
