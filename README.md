@@ -22,6 +22,11 @@ Read the doc at https://docs.syncthing.net/intro/getting-started.html on how to 
 * Starting with v1.18.4 config is now stored by default in $SNAP_DATA and shared folders in $SNAP_COMMON.
 * The v1.18.4 is backward compatible with the old versions and will use old config paths when appropriate.
 
+**2025-08-12**
+* v2.0.0 available on amd64, arm64, armhf, ppc64el & s390x
+* Database will be migrated to SQLite on first launch which can be lengthy for larger setups
+* See the official release notes for details https://github.com/syncthing/syncthing/releases/tag/v2.0.0
+
 **2025-07-01**
 * v1.30.0 available on amd64, arm64, armhf, ppc64el & s390x
 
