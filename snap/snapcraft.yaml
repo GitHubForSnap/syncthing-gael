@@ -1,5 +1,5 @@
 name: syncthing-gael
-version: "v2.0.1"
+version: "v2.0.2"
 base: core24
 summary: Open Source Continuous File Synchronization
 description: |
@@ -42,10 +42,10 @@ parts:
   app:
     plugin: go
     source: https://github.com/syncthing/syncthing.git
-    source-tag: v2.0.1
+    source-tag: v2.0.2
     source-type: git
     build-snaps:
-      - go/1.23/stable
+      - go/1.24/stable
     override-build: |
       ARCH=$(echo ${CRAFT_ARCH_BUILD_FOR}|sed -e "s/armhf/arm/" -e "s/ppc64el/ppc64le/")
 
