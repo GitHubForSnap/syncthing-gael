@@ -23,7 +23,7 @@ Read the doc at https://docs.syncthing.net/intro/getting-started.html on how to 
 * The v1.18.4 is backward compatible with the old versions and will use old config paths when appropriate.
 
 **2025-09-03**
-* v2.0.5 available on amd64, arm64, armhf, ppc64el & s390x
+* v2.0.5/v2.0.6 available on amd64, arm64, armhf, ppc64el & s390x
 
 **2025-09-02**
 * v2.0.4 available on amd64, arm64, armhf, ppc64el & s390x
