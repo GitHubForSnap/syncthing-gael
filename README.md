@@ -22,6 +22,9 @@ Read the doc at https://docs.syncthing.net/intro/getting-started.html on how to 
 * Starting with v1.18.4 config is now stored by default in $SNAP_DATA and shared folders in $SNAP_COMMON.
 * The v1.18.4 is backward compatible with the old versions and will use old config paths when appropriate.
 
+**2025-10-11**
+* Go has been upgraded to v1.25.2
+
 **2025-09-24**
 * v2.0.10 available on amd64, arm64, armhf, ppc64el & s390x
 
